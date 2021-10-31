@@ -18,7 +18,10 @@
     <ClCompile Include="图和图的应用.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="BasicOpreation.cpp">
+    <ClCompile Include="AMGraph BasicOpreation .cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ALGraph BasicOpreation .cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

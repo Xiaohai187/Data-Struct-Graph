@@ -139,7 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BasicOpreation.cpp" />
+    <ClCompile Include="ALGraph BasicOpreation .cpp" />
+    <ClCompile Include="AMGraph BasicOpreation .cpp" />
     <ClCompile Include="图和图的应用.cpp" />
   </ItemGroup>
   <ItemGroup>

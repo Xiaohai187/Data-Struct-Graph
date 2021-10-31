@@ -7,7 +7,8 @@ using namespace std;
 
 int main()
 {
+    VerType v;
     AMGraph G;
-    HigherOperation(G);
+    AMgraphBasicOperation(G,v);
 }
 
