@@ -1,0 +1,3 @@
+﻿  BasicOpreation.cpp
+C:\Users\1871991140\source\repos\图和图的应用\BasicOpreation.cpp(13): warning C4715: “AMlocate”: 不是所有的控件路径都返回值
+  图和图的应用.vcxproj -> C:\Users\1871991140\source\repos\图和图的应用\Debug\图和图的应用.exe
