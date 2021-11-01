@@ -34,18 +34,55 @@ AMGraph AMUDNGraphCreate(AMGraph& G) {
 	}
 	return G;
 }
-//邻接表法创建无向网
+
+void OutAMGvexs(AMGraph G) {    //顺序输出图的所有顶点 
+	cout << "图中顶点依次为：";                                                           
+	for (int i = 0; i < G.vexsnum; i++) {
+		cout << G.vexs[i] << " ";
+	}
+}
+
+void AMGSearchArc(AMGraph G) {  //查询任意两个顶点之间是否有边，如过有边，则返回边的权值，如果没有，则提示不存在
+	ArcType v1, v2; int i=0, j = 0;
+	cout << "请输入需要查询的两个顶点："; cin >> v1 >> v2;
+	while (i < G.vexsnum) {
+		if (G.vexs[i] == v1) {
+			break;
+		}
+		else { i++; }
+	}
+	if (i >= G.vexsnum) {
+		cout << v1 << "顶点不存在!";
+	}
+	while (j < G.vexsnum) {
+		if (G.vexs[j] == v2) {
+			break;
+		}
+		else { j++; }
+	}
+	if (j >= G.vexsnum) {
+		cout << v2 << "顶点不存在!";
+	}
+	if (G.arcs[i][j] != MAXInt) {
+		cout << v1 << "和" << v2 << "之间边的权值为" << G.arcs[i][j];
+	}
+	else {
+		cout << "边不存在！";
+	}
+}
 
 
 void AMGraphbasicPerface() {
 	cout << "\n*********************************************************************\n";
 	cout << "                       AMGraph BasicOpreation                          \n\n";
 	cout << "1、创建一个用领接矩阵存储的无向网    2、返回一个图顶点在邻接矩阵中的位置\n";
-	cout << "3、暂定  4、返回上一级\n 输入选择，输入0直接退出！\n";
+	cout << "3、顺序输出图的所有顶点              4、查询任意两条顶点之间是否存在边\n"; 
+	cout << "10、返回上一级\n输入选择，输入0直接退出！\n";
 	cout << "*********************************************************************\n";
 }
 
-void AMgraphBasicOperation(AMGraph G, VerType v) {
+void AMgraphBasicOperation(){
+	AMGraph G; VerType v=0;
 	int chose = 0;
 	while (1) {
 		AMGraphbasicPerface();
@@ -56,19 +93,22 @@ void AMgraphBasicOperation(AMGraph G, VerType v) {
 			AMUDNGraphCreate(G);
 			break;
 		case 2:
-			cout << "\n你的选择是：2、\n";
-			AMlocate(G, v);
+			cout << "请输入你要查询的顶点："; cin >> v;
+			cout << "其在图中位置为："<<AMlocate(G, v);
 			break;
 		case 3:
-			cout << "\n你的选择是：3、\n";
+			cout << "\n你的选择是：3、顺序输出图的所有顶点\n";
+			OutAMGvexs(G);
 			break;
 		case 4:
+			cout << "\n你的选择是：4、查询任意两条顶点之间是否存在边\n";
+			AMGSearchArc(G);
 			break;
 		case 0:
 			exit(0);
 		default:
 			break;
-		}if (chose == 4) {
+		}if (chose == 10) {
 			break;
 		}
 	}

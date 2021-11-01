@@ -25,10 +25,19 @@ ALGraph ALUDNGraphCreate(ALGraph& G) {
 		cout << "请输入每一条边对应的两个顶点，以及边的权值："; cin >> v1 >> v2 >> weight;
 		int m = ALGLocate(G, v1); int n = ALGLocate(G, v2);
 		//ArcNode p,q;
-		ArcNode *p = new ArcNode; ArcNode *q = new ArcNode;
-		p.adjvex = m; q.adjvex = n;
-		p.info = q.info = weight;
-		p.nextarc = G.vertices[j].firstarc; G.vertices[j].firstarc = p;
+		ArcNode* p = new ArcNode; ArcNode *q = new ArcNode;                                 //边节点p和边节点q，p是接在点v1后的边，q是接在点v2后的邻接边
+		p->adjvex = n; q->adjvex = m;                                                       //边指向的顶点位置
+		p->info = q->info = weight;                                                         //边的权值
+		p->nextarc = G.vertices[m].firstarc; G.vertices[m].firstarc = p;                    //下一条边指向的点，类似于头插法
+		q->nextarc = G.vertices[n].firstarc; G.vertices[n].firstarc = q;
+	}
+	return G;
+}
+
+void OutALGvexs(ALGraph G) {                                                                //顺序输出图的所有顶点
+	cout << "图中顶点依次为：";
+	for (int i = 0; i < G.vexnum; i++) {
+		cout << G.vertices[i].data<< " ";
 	}
 }
 
@@ -36,11 +45,12 @@ void ALGraphbasicPerface() {
 	cout << "\n*********************************************************************\n";
 	cout << "                       ALGraph BasicOpreation                          \n\n";
 	cout << "1、创建一个用邻接表存储的无向网    2、返回一个图顶点在邻接表中的位置\n";
-	cout << "3、暂定  4、返回上一级\n 输入选择，输入0直接退出！\n";
+	cout << "3、输出图的所有顶点                4、返回上一级\n\n 输入选择，输入0直接退出！\n";
 	cout << "*********************************************************************\n";
 }
 
-void ALgraphBasicOperation(ALGraph G) {
+void ALgraphBasicOperation( ) {
+	ALGraph G;
 	int chose = 0; VerTexType v;
 	while (1) {
 		ALGraphbasicPerface();
@@ -51,11 +61,13 @@ void ALgraphBasicOperation(ALGraph G) {
 			ALUDNGraphCreate(G);
 			break;
 		case 2:
-			cout << "\n你的选择是：2、\n";
-			ALGLocate(G, v);
+			cout << "\n你的选择是：2、返回一个图顶点在邻接表中的位置\n";
+			cout << "请输入你要查询的顶点："; cin >> v;
+			cout<<"其在图中位置为："<<ALGLocate(G, v);
 			break;
 		case 3:
-			cout << "\n你的选择是：3、\n";
+			cout << "\n你的选择是：3、输出图的所有顶点\n";
+			OutALGvexs(G);
 			break;
 		case 4:
 			break;

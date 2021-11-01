@@ -1,7 +1,2 @@
-﻿  ALGraph BasicOpreation .cpp
-C:\Users\1871991140\source\repos\图和图的应用\ALGraph BasicOpreation .cpp(29,5): error C2228: “.adjvex”的左边必须有类/结构/联合
-C:\Users\1871991140\source\repos\图和图的应用\ALGraph BasicOpreation .cpp(29,5): message : 类型是“ArcNode *”
-C:\Users\1871991140\source\repos\图和图的应用\ALGraph BasicOpreation .cpp(29,5): message : 是否改用“->”?
-  图和图的应用.cpp
-  正在生成代码...
-C:\Users\1871991140\source\repos\图和图的应用\图和图的应用.cpp(12): error C4700: 使用了未初始化的局部变量“v”
+﻿  图和图的应用.cpp
+  图和图的应用.vcxproj -> C:\Users\1871991140\source\repos\图和图的应用\Debug\图和图的应用.exe
