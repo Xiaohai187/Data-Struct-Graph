@@ -42,19 +42,40 @@ void OutAMGvexs(AMGraph G) {    //顺序输出图的所有顶点
 	}
 }
 
+void AMAdjVex(AMGraph G) {       //输出一个顶点的邻接点
+	ArcType v; int i = 0,j = 0;
+	cout << "请输入需要查询的顶点："; cin >> v;
+	while (i < G.vexsnum) {                                          //找到第一个顶点是不是在图的邻接表矩阵中，如果在，i就是在顶点数组中的位置下标
+		if (G.vexs[i] == v) {
+			break;
+		}
+		else { i++; }
+	}
+	if (i >= G.vexsnum) {
+		cout << v << "顶点不存在!";                                 //遍历结束都没有找到，就是没有
+	}
+	while (j < G.vexsnum) {
+		if (G.arcs[i][j]!=MAXInt) {
+			cout << G.vexs[j]<<" ";
+			j++;
+		}
+		else { j++; }
+	}
+}
+
 void AMGSearchArc(AMGraph G) {  //查询任意两个顶点之间是否有边，如过有边，则返回边的权值，如果没有，则提示不存在
 	ArcType v1, v2; int i=0, j = 0;
 	cout << "请输入需要查询的两个顶点："; cin >> v1 >> v2;
-	while (i < G.vexsnum) {
+	while (i < G.vexsnum) {                                          //找到第一个顶点是不是在图的邻接表矩阵中，如果在，i就是在顶点数组中的位置下标
 		if (G.vexs[i] == v1) {
 			break;
 		}
 		else { i++; }
 	}
 	if (i >= G.vexsnum) {
-		cout << v1 << "顶点不存在!";
+		cout << v1 << "顶点不存在!";                                 //遍历结束都没有找到，就是没有
 	}
-	while (j < G.vexsnum) {
+	while (j < G.vexsnum) {                                          //对第二个顶点做同样的操作，找到第二个节点的位置
 		if (G.vexs[j] == v2) {
 			break;
 		}
@@ -63,7 +84,7 @@ void AMGSearchArc(AMGraph G) {  //查询任意两个顶点之间是否有边，如过有边，则返回
 	if (j >= G.vexsnum) {
 		cout << v2 << "顶点不存在!";
 	}
-	if (G.arcs[i][j] != MAXInt) {
+	if (G.arcs[i][j] != MAXInt) {                                    //如果边矩阵中对应边权值不是最大，即存在，输出权值
 		cout << v1 << "和" << v2 << "之间边的权值为" << G.arcs[i][j];
 	}
 	else {
@@ -77,7 +98,7 @@ void AMGraphbasicPerface() {
 	cout << "                       AMGraph BasicOpreation                          \n\n";
 	cout << "1、创建一个用领接矩阵存储的无向网    2、返回一个图顶点在邻接矩阵中的位置\n";
 	cout << "3、顺序输出图的所有顶点              4、查询任意两条顶点之间是否存在边\n"; 
-	cout << "10、返回上一级\n输入选择，输入0直接退出！\n";
+	cout << "5、查询一个顶点的邻接顶点            10、返回上一级\n输入选择，输入0直接退出！\n";
 	cout << "*********************************************************************\n";
 }
 
@@ -103,6 +124,10 @@ void AMgraphBasicOperation(){
 		case 4:
 			cout << "\n你的选择是：4、查询任意两条顶点之间是否存在边\n";
 			AMGSearchArc(G);
+			break;
+		case 5:
+			cout << "\n你的选择是：5、查询一个顶点的邻接顶点\n";
+			AMAdjVex(G);
 			break;
 		case 0:
 			exit(0);

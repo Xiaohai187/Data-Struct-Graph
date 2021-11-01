@@ -1,2 +1,8 @@
-﻿  图和图的应用.cpp
+﻿  ALGraph BasicOpreation .cpp
+  AMGraph BasicOpreation .cpp
+  图和图的应用.cpp
+  正在生成代码...
+C:\Users\1871991140\source\repos\图和图的应用\AMGraph BasicOpreation .cpp(13): warning C4715: “AMlocate”: 不是所有的控件路径都返回值
+C:\Users\1871991140\source\repos\图和图的应用\ALGraph BasicOpreation .cpp(13): warning C4715: “ALGLocate”: 不是所有的控件路径都返回值
+  LINK : 没有找到 C:\Users\1871991140\source\repos\图和图的应用\Debug\图和图的应用.exe 或上一个增量链接没有生成它；正在执行完全链接
   图和图的应用.vcxproj -> C:\Users\1871991140\source\repos\图和图的应用\Debug\图和图的应用.exe
